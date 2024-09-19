@@ -2,7 +2,7 @@ package Consola;
 
 import Videojuego.Videojuego;
 
-public class ps5 extends consola implements IConsola{
+public class ps5 extends consola  {
     public ps5(String plataforma) {
         super(plataforma);
     }

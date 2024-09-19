@@ -1,18 +1,19 @@
 package Videojuego;
 
-import java.util.Arrays;
+import Consola.plataformas;
+
 import java.util.Objects;
 
-public abstract class Videojuego {
+public abstract class Videojuego implements IVideojuego{
     private String nombre;
 
     private double precio;
 
-    private String plataforma;
+    private plataformas plataforma;
 
     private generos genero;
 
-    public Videojuego(String nombre, double precio, String plataforma, generos genero) {
+    public Videojuego(String nombre, double precio, plataformas plataforma, generos genero) {
         this.nombre = nombre;
         this.precio = precio;
         this.plataforma = plataforma;
@@ -27,11 +28,11 @@ public abstract class Videojuego {
         return nombre;
     }
 
-    public void setPlataforma(String plataforma) {
+    public void setPlataforma(plataformas plataforma) {
         this.plataforma = plataforma;
     }
 
-    public String getPlataforma() {
+    public plataformas getPlataforma() {
         return plataforma;
     }
 

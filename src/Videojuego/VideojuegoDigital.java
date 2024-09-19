@@ -1,9 +1,11 @@
 package Videojuego;
 
-public class VideojuegoDigital extends Videojuego {
+import Consola.plataformas;
+
+public class VideojuegoDigital extends Videojuego implements IVideojuego{
     private final double oferta = 0.8;
 
-    public VideojuegoDigital(String nombre, double precio, String plataforma, generos genero) {
+    public VideojuegoDigital(String nombre, double precio, plataformas plataforma, generos genero) {
         super(nombre, precio, plataforma, genero);
     }
 

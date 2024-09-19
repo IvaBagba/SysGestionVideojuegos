@@ -1,4 +1,6 @@
 import Consola.nsw;
+import Consola.plataformas;
+import Consola.xbox;
 import Videojuego.VideojuegoDigital;
 import Videojuego.VideojuegoFisico;
 import Videojuego.generos;
@@ -7,21 +9,21 @@ import Videojuego.generos;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        VideojuegoFisico tlot = new VideojuegoFisico("the legend of torrente",10,"NSW", generos.FPS);
-        VideojuegoDigital insatisfactorio = new VideojuegoDigital("insatisfactorio",10,"PS5", generos.FPS);
+        VideojuegoFisico tlot = new VideojuegoFisico("the legend of torrente",10, plataformas.NSW, generos.ACCION);
+        VideojuegoDigital insatisfactorio = new VideojuegoDigital("insatisfactorio",10,plataformas.XBOX, generos.PUZZLES);
         
         System.out.println(tlot.toString());
-        tlot.calcPrecio();
-        System.out.println(tlot.toString());
-        tlot.calcPrecio();
-        tlot.calcPrecio();
-        tlot.calcPrecio();
-        tlot.calcPrecio();
+
+        System.out.println(insatisfactorio.toString());
+
 
         nsw nSwitch = new nsw("NSW");
+        xbox xBox = new xbox("XBOX");
+
         nSwitch.instalarJuego(tlot);
-        nSwitch.instalarJuego(insatisfactorio);
+        xBox.instalarJuego(insatisfactorio);
 
         nSwitch.jugarJuego();
+        xBox.jugarJuego();
     }
 }
