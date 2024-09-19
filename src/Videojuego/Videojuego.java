@@ -65,6 +65,7 @@ public abstract class Videojuego {
     }
 
 
+
     @Override
     public String toString() {
         return "Videojuego{" + "nombre='" + nombre + '\'' + ", precio=" + precio + ", plataforma='" + plataforma + '\'' + ", genero=" + genero + '}';

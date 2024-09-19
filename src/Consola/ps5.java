@@ -1,5 +1,7 @@
 package Consola;
 
+import Videojuego.Videojuego;
+
 public class ps5 extends consola implements IConsola{
     public ps5(String plataforma) {
         super(plataforma);
@@ -16,7 +18,7 @@ public class ps5 extends consola implements IConsola{
     }
 
     @Override
-    public void instalarJuego() {
+    public void instalarJuego(Videojuego objeto) {
 
     }
 

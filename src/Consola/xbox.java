@@ -1,9 +1,13 @@
 package Consola;
 
+import Videojuego.Videojuego;
+
 public class xbox extends consola implements IConsola{
     public xbox(String plataforma) {
         super(plataforma);
     }
+
+
 
     @Override
     public void encender() {
@@ -16,7 +20,7 @@ public class xbox extends consola implements IConsola{
     }
 
     @Override
-    public void instalarJuego() {
+    public void instalarJuego(Videojuego objeto) {
 
     }
 

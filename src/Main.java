@@ -1,3 +1,4 @@
+import Consola.nsw;
 import Videojuego.VideojuegoDigital;
 import Videojuego.VideojuegoFisico;
 import Videojuego.generos;
@@ -17,5 +18,10 @@ public class Main {
         tlot.calcPrecio();
         tlot.calcPrecio();
 
+        nsw nSwitch = new nsw("NSW");
+        nSwitch.instalarJuego(tlot);
+        nSwitch.instalarJuego(insatisfactorio);
+
+        nSwitch.jugarJuego();
     }
 }

@@ -1,8 +1,11 @@
 package Consola;
 
+import Videojuego.Videojuego;
+
+import javax.swing.*;
 import java.util.Objects;
 
-public abstract class consola {
+public abstract class consola implements IConsola {
     private String plataforma;
 
     public consola(String plataforma) {
@@ -30,4 +33,6 @@ public abstract class consola {
     public String toString() {
         return "consola{" + "plataforma='" + plataforma + '\'' + '}';
     }
+
+    public abstract void instalarJuego(Videojuego objeto);
 }
