@@ -3,10 +3,15 @@ package Consola;
 import Videojuego.Videojuego;
 
 import javax.swing.*;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Objects;
 
 public abstract class consola implements IConsola {
+
     private String plataforma;
+
+
 
     public consola(String plataforma) {
         this.plataforma = plataforma;
@@ -35,4 +40,6 @@ public abstract class consola implements IConsola {
     }
 
     public abstract void instalarJuego(Videojuego objeto);
+
+
 }

@@ -10,7 +10,7 @@ import Videojuego.generos;
 public class Main {
     public static void main(String[] args) {
         VideojuegoFisico tlot = new VideojuegoFisico("the legend of torrente",10, plataformas.NSW, generos.ACCION);
-        VideojuegoDigital insatisfactorio = new VideojuegoDigital("insatisfactorio",10,plataformas.XBOX, generos.PUZZLES);
+        VideojuegoDigital insatisfactorio = new VideojuegoDigital("insatisfactorio",10,plataformas.NSW, generos.PUZZLES);
         
         System.out.println(tlot.toString());
 
@@ -21,9 +21,10 @@ public class Main {
         xbox xBox = new xbox("XBOX");
 
         nSwitch.instalarJuego(tlot);
-        xBox.instalarJuego(insatisfactorio);
+        //nSwitch.instalarJuego(tlot);
+        nSwitch.instalarJuego(insatisfactorio);
 
-        nSwitch.jugarJuego();
-        xBox.jugarJuego();
+        //nSwitch.jugarJuego();
+        //xBox.jugarJuego();
     }
 }
