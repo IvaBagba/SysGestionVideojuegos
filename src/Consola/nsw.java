@@ -2,15 +2,48 @@ package Consola;
 
 import Videojuego.Videojuego;
 
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class nsw extends consola {
 
 
     List<Videojuego> juegosNSW = new ArrayList<Videojuego>();
+    List<List<String>> juegosInstalados = new ArrayList<>();
+
+    FileWriter guardarJuegos;
+
+    BufferedReader leerJuego;
+
+    {
+        try {
+            leerJuego = new BufferedReader(new FileReader("C:\\Users\\ivan\\IdeaProjects\\SysGestionVideojuegos\\juegos" + getPlataforma() + ".csv"));
+            String datos;
+
+            while ((datos = leerJuego.readLine()) != null){
+                String[] valores = datos.split(",");
+                juegosInstalados.add(Arrays.asList(valores));
+            }
+            System.out.println("Lista leida");
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    {
+        try {
+            guardarJuegos = new FileWriter("C:\\Users\\ivan\\IdeaProjects\\SysGestionVideojuegos\\juegos" + getPlataforma() + ".csv",true);
+            System.out.println("Lista creada");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public nsw(String plataforma) {
         super(plataforma);
@@ -29,33 +62,44 @@ public class nsw extends consola {
     @Override
     public void instalarJuego(Videojuego juego) {
 
-        if (juego.getPlataforma().equals(plataformas.NSW) && !juegosNSW.contains(juego)) {
-            juegosNSW.add(juego);
-            System.out.println("Juego agregado con exito " + "(" + juego.getNombre() + ")");
+        boolean instalado = false;
 
-
-            //Separador
-            System.out.println("___");
-
-
-            try {
-                FileWriter guardarJuegos = new FileWriter("C:\\Users\\ivan\\IdeaProjects\\SysGestionVideojuegos\\juegos" + getPlataforma() + ".csv");
-                guardarJuegos.write(juego.getNombre() + ',' + juego.getGenero() + ',' + juego.getPlataforma());
-                guardarJuegos.append("\n");
-                guardarJuegos.close();
-
-                System.out.println("Juego guardado con exito");
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+        for (List<String> juegoInstalado : juegosInstalados) {
+            if (juegoInstalado.get(0).equals(juego.getNombre())) {
+                instalado = true;
             }
-
-
-        } else {
-            System.out.println("Juego no agregado (Incompatible o Ya Instalado)");
-
-            //Separador
-            System.out.println("___");
         }
+
+        if (instalado == false) {
+
+            if (juego.getPlataforma().equals(plataformas.NSW)) {
+                juegosNSW.add(juego);
+
+                try {
+
+                    guardarJuegos.append(juego.getNombre()+","+juego.getGenero()+","+juego.getPlataforma()); //jojo jojo jojo
+                    guardarJuegos.append("\n");
+                    guardarJuegos.flush();
+
+                    System.out.println(juego.getNombre());
+                    System.out.println("Juego guardado con exito");
+                } catch (IOException e) {
+                    System.out.println("ERROR");
+                }
+
+
+            } else {
+                System.out.println("Juego no agregado (Incompatible)");
+
+                //Separador
+                System.out.println("___");
+            }
+        } else {
+            System.out.println("Juego no agregado (Ya Instalado)");
+
+        }
+
+
     }
 
     @Override

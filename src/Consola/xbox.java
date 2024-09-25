@@ -44,7 +44,7 @@ public class xbox extends consola {
 
             try {
                 FileWriter guardarJuegos = new FileWriter("C:\\Users\\ivan\\IdeaProjects\\SysGestionVideojuegos\\juegos" + getPlataforma() + ".csv");
-                guardarJuegos.write(juego.getNombre() + ',' + juego.getGenero() + ',' + juego.getPlataforma());
+                guardarJuegos.append(juego.getNombre() + ',' + juego.getGenero() + ',' + juego.getPlataforma());
                 guardarJuegos.append("\n");
                 guardarJuegos.close();
 
