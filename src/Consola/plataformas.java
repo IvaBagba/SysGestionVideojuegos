@@ -3,5 +3,6 @@ package Consola;
 public enum plataformas {
     XBOX,
     NSW,
-    PS5
+    PS5,
+    Ds4,
 }

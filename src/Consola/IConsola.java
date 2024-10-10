@@ -7,6 +7,6 @@ public interface IConsola {
     public void apagar();
     public void instalarJuego(Videojuego videojuego);
     public void jugarJuego();
-    public String getPlataforma();
+    public plataformas getPlataforma();
 
 }
